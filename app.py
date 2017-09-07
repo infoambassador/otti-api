@@ -1,9 +1,13 @@
 import os
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
+from models import Course
 
 @app.route('/')
 def hello():
