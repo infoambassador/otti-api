@@ -7,7 +7,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-from models import Course
+import models
 
 @app.route('/')
 def hello():
